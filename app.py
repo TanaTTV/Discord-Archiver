@@ -28,11 +28,13 @@ app = Flask(__name__)
 CORS(app)
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# CONFIGURATION - SPEED SETTINGS
+# CONFIGURATION - SAFETY SETTINGS
 # ═══════════════════════════════════════════════════════════════════════════════
+# ⚠️ WARNING: High values may trigger Discord API abuse detection and account bans.
+# We recommend keeping these at safe defaults (1 channel, 5 downloads).
 
-CONCURRENT_CHANNELS = 8  # Scan 8 channels simultaneously
-CONCURRENT_DOWNLOADS = 15  # Download 15 attachments at once
+CONCURRENT_CHANNELS = 1   # Channels to scan simultaneously (1 = sequential, safest)
+CONCURRENT_DOWNLOADS = 5  # Attachments to download at once (keep low to avoid rate limits)
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL STATE
