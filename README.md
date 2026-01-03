@@ -22,7 +22,7 @@
 
 ## ✨ Features
 
-- �️ **Local Web Interface** — Runs entirely on your machine via a simple browser UI
+- 🕸️ **Local Web Interface** — Runs entirely on your machine via a simple browser UI
 - 📄 **Standard JSON and Human-Readable TXT Exports** — Portable formats for long-term archival
 - 🔒 **Self-Hosted: Your Data Stays on Your Machine** — No third-party servers or cloud uploads
 - ⚙️ **Configurable Speed Settings for API Safety** — Adjust concurrency to respect Discord's rate limits
