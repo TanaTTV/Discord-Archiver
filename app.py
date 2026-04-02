@@ -14,6 +14,7 @@ import io
 import zipfile
 import threading
 import logging
+import urllib.request
 import aiohttp
 import base64
 from datetime import datetime, timezone
@@ -40,6 +41,8 @@ CORS(app, origins=["http://localhost:5000", "http://127.0.0.1:5000"])
 CONCURRENT_CHANNELS = int(os.getenv("CONCURRENT_CHANNELS", "1"))
 CONCURRENT_DOWNLOADS = int(os.getenv("CONCURRENT_DOWNLOADS", "5"))
 PORT = int(os.getenv("PORT", "5000"))
+APP_VERSION = "1.0.0"
+GITHUB_REPO = "TanaTTV/Discord-Archiver"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL STATE
@@ -468,6 +471,25 @@ def start_fetch_channels_thread(bot_token: str, server_id: int):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/api/version')
+def version_check():
+    try:
+        url = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
+        req = urllib.request.Request(url, headers={"User-Agent": "Discord-Archiver"})
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            data = json.loads(resp.read())
+            latest = data.get("tag_name", "").lstrip("v")
+            return jsonify({
+                "current": APP_VERSION,
+                "latest": latest,
+                "update_available": latest != APP_VERSION and latest != "",
+                "release_url": data.get("html_url", f"https://github.com/{GITHUB_REPO}/releases")
+            })
+    except Exception as e:
+        log.warning(f"Update check failed: {e}")
+        return jsonify({"current": APP_VERSION, "update_available": False})
 
 
 @app.route('/api/fetch-channels', methods=['POST'])
