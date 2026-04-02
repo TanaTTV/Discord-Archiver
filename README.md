@@ -7,6 +7,17 @@
 ![Discord.py](https://img.shields.io/badge/discord.py-2.3+-blueviolet?logo=discord)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Chromebook-lightgrey)
+![GitHub stars](https://img.shields.io/github/stars/TanaTTV/Discord-Archiver?style=social)
+
+---
+
+## 📸 Demo
+
+> **Screenshot coming soon** — run the app and open `http://localhost:5000` to see the UI.
+>
+> *Have a screenshot or screen recording of the app in action? Open a PR and add it here — it helps others discover the project!*
+
+<!-- Replace this comment with: ![Discord Archiver UI](docs/screenshot.png) -->
 
 ---
 
@@ -257,6 +268,20 @@ MIT License — see [LICENSE](LICENSE) for details.
 This software is provided "as-is" for personal archival purposes. The developers assume no liability for violations of Discord's Terms of Service, account suspensions, privacy violations, or any damages arising from the use of this software.
 
 **Use responsibly and at your own risk.**
+
+---
+
+---
+
+## ⭐ Support the Project
+
+If Discord Archiver saved your memories or saved you time, consider giving it a star — it helps others find the project.
+
+[![Star this repo](https://img.shields.io/github/stars/TanaTTV/Discord-Archiver?style=for-the-badge&logo=github)](https://github.com/TanaTTV/Discord-Archiver/stargazers)
+
+**Found a bug?** → [Open an issue](https://github.com/TanaTTV/Discord-Archiver/issues/new/choose)
+**Have an idea?** → [Start a discussion](https://github.com/TanaTTV/Discord-Archiver/discussions)
+**Want to contribute?** → Fork it, build it, PR it.
 
 ---
 
