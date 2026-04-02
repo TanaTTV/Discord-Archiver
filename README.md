@@ -6,7 +6,7 @@
 ![Flask](https://img.shields.io/badge/Flask-3.0+-green?logo=flask)
 ![Discord.py](https://img.shields.io/badge/discord.py-2.3+-blueviolet?logo=discord)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Chromebook-lightgrey)
 
 ---
 
@@ -53,14 +53,43 @@ Every export produces a ZIP file containing:
 
 ## 🚀 Quick Start
 
-### Windows (Easiest)
+### 🪟 Windows
 
 1. Download or clone this repo
-2. Double-click **`install.bat`** — it checks Python, installs dependencies, and creates a `run.bat` shortcut
+2. Double-click **`install.bat`** — checks Python, installs dependencies, creates a `run.bat` shortcut
 3. Double-click **`run.bat`** to start the app
 4. Open **http://localhost:5000** in your browser
 
-### Manual (Windows / macOS / Linux)
+---
+
+### 🐧 Linux / macOS / Chromebook
+
+**Chromebook users:** First enable Linux — go to **Settings → Advanced → Developers → Linux development environment → Turn on**. Then open the **Terminal** app.
+
+```bash
+# 1. Install Python (skip if already installed)
+sudo apt update && sudo apt install -y python3 python3-pip   # Debian/Ubuntu/Chromebook
+# brew install python                                         # macOS with Homebrew
+
+# 2. Clone the repo
+git clone https://github.com/TanaTTV/discord-archiver.git
+cd discord-archiver
+
+# 3. Run the installer
+chmod +x install.sh
+./install.sh
+
+# 4. Start the app
+./run.sh
+```
+
+Open **http://localhost:5000** in your browser.
+
+> **Chromebook tip:** After starting the app, open Chrome and go to `http://localhost:5000` — it works in your normal Chrome browser, no extra steps needed.
+
+---
+
+### Manual (any platform)
 
 ```bash
 git clone https://github.com/TanaTTV/discord-archiver.git
@@ -173,6 +202,9 @@ All settings live in the `.env` file (created automatically from `.env.example` 
 | "A download is already in progress" | Wait for the current download to finish or click Cancel |
 | `pip install` fails | Make sure Python 3.10+ is installed and on your PATH |
 | Port already in use | Change `PORT=5000` to another port in your `.env` file |
+| Chromebook: Linux not available | Go to Settings → Advanced → Developers → Linux development environment → Turn on |
+| Chromebook: `python3` not found | Run `sudo apt update && sudo apt install -y python3 python3-pip` in Terminal |
+| `./install.sh`: Permission denied | Run `chmod +x install.sh` first, then `./install.sh` |
 
 ---
 
