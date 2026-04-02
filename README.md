@@ -13,11 +13,9 @@
 
 ## 📸 Demo
 
-> **Screenshot coming soon** — run the app and open `http://localhost:5000` to see the UI.
->
-> *Have a screenshot or screen recording of the app in action? Open a PR and add it here — it helps others discover the project!*
+![Discord Archiver UI](docs/screenshot.png)
 
-<!-- Replace this comment with: ![Discord Archiver UI](docs/screenshot.png) -->
+> Enter your bot token and server ID, pick your channels, and hit **Start Archive** — everything stays on your machine.
 
 ---
 
