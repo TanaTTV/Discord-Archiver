@@ -805,6 +805,63 @@
             display: block;
         }
 
+        /* Update banner */
+        .update-banner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+            animation: slideDown 0.4s ease;
+        }
+
+        .update-banner.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .update-banner a {
+            color: white;
+            font-weight: 700;
+            text-decoration: underline;
+            white-space: nowrap;
+        }
+
+        .update-banner-dismiss {
+            position: absolute;
+            right: 16px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0.8;
+            line-height: 1;
+        }
+
+        .update-banner-dismiss:hover {
+            opacity: 1;
+        }
+
+        body.has-banner .container {
+            padding-top: 80px;
+        }
+
         /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -826,8 +883,15 @@
     </style>
 </head>
 <body>
+    <!-- Update notification banner -->
+    <div class="update-banner" id="updateBanner">
+        <span>🎉 A new version of Discord Archiver is available!</span>
+        <a id="updateLink" href="#" target="_blank">Download latest release →</a>
+        <button class="update-banner-dismiss" onclick="dismissUpdate()">✕</button>
+    </div>
+
     <div class="bg-pattern"></div>
-    
+
     <div class="container">
         <header class="header">
             <div class="logo">🗄️</div>
@@ -1107,6 +1171,26 @@
         let pollInterval = null;
         let selectedChannels = new Set();
         let allChannelIds = [];
+
+        // Check for updates on load
+        async function checkForUpdate() {
+            try {
+                const resp = await fetch('/api/version');
+                const data = await resp.json();
+                if (data.update_available) {
+                    document.getElementById('updateLink').href = data.release_url;
+                    document.getElementById('updateBanner').classList.add('active');
+                    document.body.classList.add('has-banner');
+                }
+            } catch (_) {}
+        }
+
+        function dismissUpdate() {
+            document.getElementById('updateBanner').classList.remove('active');
+            document.body.classList.remove('has-banner');
+        }
+
+        checkForUpdate();
 
         // Options state
         const options = {
