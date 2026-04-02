@@ -148,6 +148,100 @@ Discord Archiver uses a bot token to read your server's message history through 
 
 ---
 
+## 🖱️ Using the App
+
+Once the app is running and you've opened `http://localhost:5000`, here is exactly what to do.
+
+---
+
+### Step 1 — Fill in the Connection Fields
+
+**Bot Token**
+Paste your bot token here. It looks like a long string of random characters. This is how the app connects to Discord — keep it private and never share it.
+
+**Server ID**
+The ID of the Discord server you want to archive. It is a long number like `123456789012345678`. See [How to Find Your IDs](#-how-to-find-your-ids) below.
+
+**Filter by User ID(s)** *(optional)*
+Leave this blank to archive **everyone's messages** in the server.
+Enter your own User ID to only save **your messages**.
+Enter multiple User IDs separated by commas to filter to specific people.
+
+---
+
+### Step 2 — Choose Your Options
+
+**Include Bot Messages**
+- ✅ On — bot messages (automated responses, commands, etc.) are included in the archive
+- ⬜ Off — only human messages are saved
+
+**Separate User Files**
+- ✅ On — creates an extra folder in the ZIP with one file per user, so you can see each person's messages separately
+- ⬜ Off — all messages are in one combined file (recommended for most people)
+
+**Download Attachments**
+- ✅ On — images, videos, and files shared in the server are downloaded and included in the ZIP
+- ⬜ Off — only text messages are saved (much faster, much smaller file size)
+
+> ⚠️ Enabling attachments on a large server can produce very large ZIP files and take a long time. Start without it to test.
+
+---
+
+### Step 3 — Apply Filters *(optional)*
+
+Click **Date Range Filter** to expand it.
+- Set a **From** date to only archive messages after that date
+- Set a **To** date to only archive messages before that date
+- Leave both blank to archive everything
+
+Click **Channel Selection** to expand it.
+- Click **Load Channels** to fetch the list of channels from your server
+- Check/uncheck individual channels to include or exclude them
+- Use **Select All** to toggle everything at once
+- Leave all unchecked to archive every channel
+
+---
+
+### Step 4 — Start the Archive
+
+Click **🚀 Start Archive**.
+
+You will see a real-time progress screen showing:
+- Which channel is currently being scanned
+- How many channels have been completed
+- How many messages have been found so far
+- Attachment download progress (if enabled)
+
+> You can click **Cancel** at any time to stop. Messages already collected will still be available to download.
+
+---
+
+### Step 5 — Download Your Archive
+
+When the progress bar hits 100% and shows **Done**, you will see two options:
+
+- **Download ZIP** — saves the archive directly to your Downloads folder through the browser
+- **Save to Local Folder** — saves the ZIP to the `downloads/` folder inside the project directory
+
+---
+
+### Step 6 — Opening Your Archive
+
+Extract the ZIP file and you will find:
+
+| File | How to open it |
+|------|----------------|
+| `*_readable.txt` | Open with Notepad, TextEdit, or any text editor — easiest to read |
+| `*_messages.json` | For developers — open with a code editor or import into other tools |
+| `by_channel/` | One text file per channel — open any in a text editor |
+| `by_user/` | One file per user *(if Separate User Files was enabled)* |
+| `attachments/` | All downloaded images and files — open normally |
+| `archive_info.json` | Summary stats — total messages, users, date range |
+
+The `*_readable.txt` file is the easiest for most people — it looks like a chat log with timestamps, names, and messages.
+
+---
+
 ## ⚙️ Configuration
 
 All settings live in the `.env` file (created automatically from `.env.example` on first run via `install.bat`).
