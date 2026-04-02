@@ -42,6 +42,7 @@
 | 🔍 **Filter by User, Channel & Date** | Archive only what you need |
 | ⏹️ **Cancellable Downloads** | Stop a running archive at any time |
 | 🛡️ **Safe by Default** | Conservative concurrency defaults to avoid Discord rate limits |
+| 🔔 **In-App Update Notifications** | Get notified when a new version is available without checking GitHub |
 
 ---
 
@@ -81,8 +82,8 @@ sudo apt update && sudo apt install -y python3 python3-pip   # Debian/Ubuntu/Chr
 # brew install python                                         # macOS with Homebrew
 
 # 2. Clone the repo
-git clone https://github.com/TanaTTV/discord-archiver.git
-cd discord-archiver
+git clone https://github.com/TanaTTV/Discord-Archiver.git
+cd Discord-Archiver
 
 # 3. Run the installer
 chmod +x install.sh
@@ -101,8 +102,8 @@ Open **http://localhost:5000** in your browser.
 ### Manual (any platform)
 
 ```bash
-git clone https://github.com/TanaTTV/discord-archiver.git
-cd discord-archiver
+git clone https://github.com/TanaTTV/Discord-Archiver.git
+cd Discord-Archiver
 pip install -r requirements.txt
 python app.py
 ```
@@ -270,16 +271,15 @@ All settings live in the `.env` file (created automatically from `.env.example` 
 
 ## 🆕 Recent Updates
 
-### v2.0 — Stability & Usability Overhaul
-- **`install.bat`** — one-click Windows installer that sets up everything automatically
-- **`.env` configuration** — no more editing Python code to change settings; use the `.env` file
-- **Cancellation support** — stop a running download at any time via the UI or `/api/cancel`
-- **Concurrent download protection** — starting a second download while one is running now returns a clear error instead of corrupting state
-- **Proper error logging** — all errors are now logged with context instead of being silently swallowed
-- **Fixed startup banner** — now shows your actual configured values instead of hardcoded numbers
-- **CORS locked to localhost** — the API is no longer exposed to other origins
-- **Python 3.13+ compatibility** — `audioop-lts` dependency is now conditional on Python version
-- **Flexible dependencies** — `requirements.txt` now uses `>=` versions so pip finds the right wheels for your Python version
+### v1.0.0 — Initial Public Release
+- **`install.bat` + `install.sh`** — one-click installers for Windows, Linux, macOS, and Chromebook
+- **`.env` configuration** — change port and concurrency without touching the code
+- **In-app update notifications** — get notified when a new version is available without checking GitHub
+- **Cancellation support** — stop a running archive at any time
+- **Concurrent download protection** — starting a second archive while one is running returns a clear error
+- **Proper error logging** — all errors are logged with context, nothing silently swallowed
+- **CORS locked to localhost** — the API is not exposed to other origins
+- **Python 3.10–3.14+ compatibility** — works across all modern Python versions
 
 ---
 
@@ -360,8 +360,6 @@ MIT License — see [LICENSE](LICENSE) for details.
 This software is provided "as-is" for personal archival purposes. The developers assume no liability for violations of Discord's Terms of Service, account suspensions, privacy violations, or any damages arising from the use of this software.
 
 **Use responsibly and at your own risk.**
-
----
 
 ---
 
